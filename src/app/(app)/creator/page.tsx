@@ -50,7 +50,7 @@ export default function CreatorDashboardPage() {
           <span>
             Доступно в пуле: <span className="font-medium text-foreground">{poolTasks.length}</span>
           </span>
-          <Button size="sm" variant="outline" asChild>
+          <Button size="sm" variant="outline">
             <Link href="/creator/settings">Настройки профиля</Link>
           </Button>
         </div>

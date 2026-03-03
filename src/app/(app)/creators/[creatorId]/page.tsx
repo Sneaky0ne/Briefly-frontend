@@ -14,7 +14,7 @@ export default async function CreatorPage({ params }: { params: Promise<{ creato
     return (
       <div className="space-y-3">
         <div className="text-lg font-medium">Креатор не найден</div>
-        <Button asChild variant="secondary">
+        <Button variant="secondary">
           <Link href="/creators">Назад</Link>
         </Button>
       </div>
@@ -33,7 +33,7 @@ export default async function CreatorPage({ params }: { params: Promise<{ creato
         <div className="flex flex-wrap gap-2">
           <Button>Написать</Button>
           <Button variant="secondary">Пригласить в проект</Button>
-          <Button variant="outline" asChild>
+          <Button variant="outline"  >
             <Link href="/creators">К списку</Link>
           </Button>
         </div>

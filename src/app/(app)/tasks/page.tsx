@@ -32,13 +32,13 @@ export default async function TasksPage({
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <Button variant={view === "list" ? "default" : "outline"} asChild>
+        <Button variant={view === "list" ? "default" : "outline"}  >
           <Link href={{ pathname: "/tasks", query: { ...searchParamsResult, view: "list" } }}>Список</Link>
         </Button>
-        <Button variant={view === "kanban" ? "default" : "outline"} asChild>
+        <Button variant={view === "kanban" ? "default" : "outline"}  >
           <Link href={{ pathname: "/tasks", query: { ...searchParamsResult, view: "kanban" } }}>Канбан</Link>
         </Button>
-        <Button variant={view === "gantt" ? "default" : "outline"} asChild>
+        <Button variant={view === "gantt" ? "default" : "outline"}  >
           <Link href={{ pathname: "/tasks", query: { ...searchParamsResult, view: "gantt" } }}>Гант</Link>
         </Button>
       </div>

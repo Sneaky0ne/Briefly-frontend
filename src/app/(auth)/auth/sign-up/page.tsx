@@ -16,10 +16,10 @@ export default function SignUpPage() {
           Здесь будет форма: название бренда, email, пароль, (опц.) логотип/категории.
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="secondary" asChild>
+          <Button variant="secondary"  >
             <Link href="/auth/sign-in">Войти</Link>
           </Button>
-          <Button asChild>
+          <Button  >
             <Link href="/dashboard">Продолжить в демо</Link>
           </Button>
         </CardFooter>

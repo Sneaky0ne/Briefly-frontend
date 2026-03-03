@@ -19,25 +19,25 @@ export default function HomePage() {
             <CardDescription>Демо-навигация по ключевым разделам.</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-2">
-            <Button asChild>
+            <Button>
               <Link href="/auth/sign-up">Регистрация бренда</Link>
             </Button>
-            <Button variant="secondary" asChild>
+            <Button variant="secondary">
               <Link href="/dashboard">Dashboard</Link>
             </Button>
-            <Button variant="secondary" asChild>
+            <Button variant="secondary">
               <Link href="/projects">Проекты</Link>
             </Button>
-            <Button variant="secondary" asChild>
+            <Button variant="secondary">
               <Link href="/tasks">Задачи</Link>
             </Button>
-            <Button variant="secondary" asChild>
+            <Button variant="secondary">
               <Link href="/creators">База креаторов</Link>
             </Button>
-            <Button variant="secondary" asChild>
+            <Button variant="secondary">
               <Link href="/analytics">Аналитика</Link>
             </Button>
-            <Button variant="secondary" asChild>
+            <Button variant="secondary">
               <Link href="/settings">Настройки</Link>
             </Button>
           </CardContent>

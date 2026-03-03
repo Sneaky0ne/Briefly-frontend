@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ projec
           <CardContent className="flex flex-wrap gap-2">
             {members.length ? (
               members.map((c) => (
-                <Button key={c!.id} size="sm" variant="outline" asChild>
+                <Button key={c!.id} size="sm" variant="outline"  >
                   <Link href={`/creators/${c!.id}`}>{c!.name}</Link>
                 </Button>
               ))
@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ projec
                 <Badge variant="secondary">{TASK_STATUS_LABEL[t.status]}</Badge>
               </div>
             ))}
-            <Button size="sm" asChild>
+            <Button size="sm"  >
               <Link href={`/tasks?project=${projectId}`}>Открыть все</Link>
             </Button>
           </CardContent>
@@ -89,7 +89,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ projec
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <Button asChild>
+        <Button  >
           <Link href={`/tasks?project=${projectId}`}>Открыть задачи проекта</Link>
         </Button>
         <Button variant="secondary">Создать задачу в проекте</Button>

@@ -14,10 +14,10 @@ export default function SignInPage() {
           Здесь будет форма входа или вход по ссылке-приглашению.
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="secondary" asChild>
+          <Button variant="secondary"  >
             <Link href="/auth/sign-up">Регистрация</Link>
           </Button>
-          <Button asChild>
+          <Button  >
             <Link href="/dashboard">Продолжить в демо</Link>
           </Button>
         </CardFooter>

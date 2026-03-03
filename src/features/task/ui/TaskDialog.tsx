@@ -108,7 +108,7 @@ export function TaskDialog(props: {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger  >
         <button
           type="button"
           className={cn(

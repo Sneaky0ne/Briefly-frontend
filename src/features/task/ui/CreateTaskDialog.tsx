@@ -33,7 +33,7 @@ export function CreateTaskDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger  >
         <Button>Создать задачу</Button>
       </DialogTrigger>
       <DialogContent className="max-w-lg">

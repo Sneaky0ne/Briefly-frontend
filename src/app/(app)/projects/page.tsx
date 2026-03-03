@@ -63,16 +63,16 @@ export default function ProjectsPage() {
                         {TASK_STATUS_LABEL[t.status]} • {t.title}
                       </Badge>
                     ))}
-                  <Button size="sm" variant="ghost" asChild>
+                  <Button size="sm" variant="ghost"  >
                     <Link href={`/tasks?project=${p.id}`}>Все задачи</Link>
                   </Button>
                 </div>
               </div>
               <div className="flex flex-wrap justify-end gap-2">
-                <Button size="sm" asChild>
+                <Button size="sm"  >
                   <Link href={`/projects/${p.id}`}>Открыть</Link>
                 </Button>
-                <Button size="sm" variant="outline" asChild>
+                <Button size="sm" variant="outline"  >
                   <Link href={`/tasks?project=${p.id}`}>Задачи</Link>
                 </Button>
               </div>

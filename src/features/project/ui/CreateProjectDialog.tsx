@@ -27,7 +27,7 @@ export function CreateProjectDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger  >
         <Button>Создать проект</Button>
       </DialogTrigger>
       <DialogContent className="max-w-lg">

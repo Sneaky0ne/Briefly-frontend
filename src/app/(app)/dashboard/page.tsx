@@ -11,10 +11,10 @@ export default function DashboardPage() {
           <p className="text-sm text-muted-foreground">Коротко о главном: что горит и куда идти дальше.</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button asChild>
+          <Button  >
             <Link href="/tasks">Новая задача</Link>
           </Button>
-          <Button variant="secondary" asChild>
+          <Button variant="secondary"  >
             <Link href="/projects">Новый проект</Link>
           </Button>
         </div>
@@ -27,7 +27,7 @@ export default function DashboardPage() {
             <CardDescription>Активные и в работе</CardDescription>
           </CardHeader>
           <CardContent>
-            <Button asChild>
+            <Button  >
               <Link href="/projects">Открыть</Link>
             </Button>
           </CardContent>
@@ -39,7 +39,7 @@ export default function DashboardPage() {
             <CardDescription>Список / Канбан / Гант</CardDescription>
           </CardHeader>
           <CardContent>
-            <Button asChild>
+            <Button  >
               <Link href="/tasks">Открыть</Link>
             </Button>
           </CardContent>
@@ -51,7 +51,7 @@ export default function DashboardPage() {
             <CardDescription>Сроки, качество, KPI</CardDescription>
           </CardHeader>
           <CardContent>
-            <Button variant="secondary" asChild>
+            <Button variant="secondary"  >
               <Link href="/analytics">Открыть</Link>
             </Button>
           </CardContent>

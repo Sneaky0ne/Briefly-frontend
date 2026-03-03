@@ -22,7 +22,7 @@ export default function SettingsPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex gap-2">
-            <Button asChild>
+            <Button  >
               <Link href="/settings/task-config">Открыть</Link>
             </Button>
           </CardContent>
