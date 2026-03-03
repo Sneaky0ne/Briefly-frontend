@@ -4,13 +4,14 @@ import { DEMO_CREATORS, DEMO_TASKS } from "@/shared/mock/demo-data";
 import { TasksClient } from "@/app/(app)/tasks/TasksClient";
 import { CreateTaskDialog } from "@/features/task/ui/CreateTaskDialog";
 
-export default function TasksPage({
+export default async function TasksPage({
   searchParams
 }: {
-  searchParams: { view?: "list" | "kanban" | "gantt"; project?: string };
+  searchParams: Promise<{ view?: "list" | "kanban" | "gantt"; project?: string }>;
 }) {
-  const view = searchParams.view ?? "list";
-  const projectId = searchParams.project;
+  const searchParamsResult = await searchParams;
+  const view = searchParamsResult.view ?? "list";
+  const projectId = searchParamsResult.project;
 
   return (
     <div className="space-y-4">
@@ -32,13 +33,13 @@ export default function TasksPage({
 
       <div className="flex flex-wrap gap-2">
         <Button variant={view === "list" ? "default" : "outline"} asChild>
-          <Link href={{ pathname: "/tasks", query: { ...searchParams, view: "list" } }}>Список</Link>
+          <Link href={{ pathname: "/tasks", query: { ...searchParamsResult, view: "list" } }}>Список</Link>
         </Button>
         <Button variant={view === "kanban" ? "default" : "outline"} asChild>
-          <Link href={{ pathname: "/tasks", query: { ...searchParams, view: "kanban" } }}>Канбан</Link>
+          <Link href={{ pathname: "/tasks", query: { ...searchParamsResult, view: "kanban" } }}>Канбан</Link>
         </Button>
         <Button variant={view === "gantt" ? "default" : "outline"} asChild>
-          <Link href={{ pathname: "/tasks", query: { ...searchParams, view: "gantt" } }}>Гант</Link>
+          <Link href={{ pathname: "/tasks", query: { ...searchParamsResult, view: "gantt" } }}>Гант</Link>
         </Button>
       </div>
 

@@ -5,8 +5,8 @@ import { Badge } from "@/shared/ui/badge";
 import { DEMO_CREATORS, DEMO_PROJECTS, DEMO_TASKS } from "@/shared/mock/demo-data";
 import { TASK_STATUS_LABEL } from "@/entities/task/model/types";
 
-export default function ProjectPage({ params }: { params: { projectId: string } }) {
-  const { projectId } = params;
+export default async function ProjectPage({ params }: { params: Promise<{ projectId: string }> }) {
+  const { projectId } = await params;
   const project = DEMO_PROJECTS.find((p) => p.id === projectId);
   const tasks = DEMO_TASKS.filter((t) => t.projectId === projectId);
   const members = project

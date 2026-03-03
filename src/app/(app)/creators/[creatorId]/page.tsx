@@ -5,9 +5,10 @@ import { Badge } from "@/shared/ui/badge";
 import { TASK_STATUS_LABEL } from "@/entities/task/model/types";
 import { DEMO_CREATORS, DEMO_TASKS } from "@/shared/mock/demo-data";
 
-export default function CreatorPage({ params }: { params: { creatorId: string } }) {
-  const creator = DEMO_CREATORS.find((c) => c.id === params.creatorId);
-  const tasks = DEMO_TASKS.filter((t) => t.creatorId === params.creatorId);
+export default async function CreatorPage({ params }: { params: Promise<{ creatorId: string }> }) {
+  const { creatorId } = await params;
+  const creator = DEMO_CREATORS.find((c) => c.id === creatorId);
+  const tasks = DEMO_TASKS.filter((t) => t.creatorId === creatorId);
 
   if (!creator) {
     return (

@@ -280,8 +280,7 @@ export function TaskDialog(props: {
                         : a.to === "review"
                           ? "На проверку"
                           : a.to === "done"
-                            ? "Принять"
-                            : TASK_STATUS_LABEL[a.to]}
+                            ? "Принять" : ""}
                     </Button>
                   );
                 })}
