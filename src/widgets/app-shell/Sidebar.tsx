@@ -10,6 +10,7 @@ import { useLocalStorageState } from "@/shared/lib/use-local-storage";
 import { Button } from "@/shared/ui/button";
 import { NAV } from "@/widgets/app-shell/nav";
 import { UserProfile } from "@/widgets/app-shell/UserProfile";
+import { ModeToggle } from "./ThemeToggle";
 
 const STORAGE_KEY = "briefly.sidebar.collapsed";
 
@@ -42,7 +43,7 @@ export function Sidebar() {
 
       <nav className="flex-1 space-y-1 px-2 pb-4">
         {NAV.map(({ href, label, Icon }) => {
-          const active = pathname === href || (href !== "/dashboard" && pathname?.startsWith(href));
+          const active = pathname === href || (href !== "/dashboard" && pathname === href);
           return (
             <Link
               key={href}
@@ -59,8 +60,9 @@ export function Sidebar() {
           );
         })}
       </nav>
-
+      
       <UserProfile collapsed={collapsed} />
+
     </aside>
   );
 }

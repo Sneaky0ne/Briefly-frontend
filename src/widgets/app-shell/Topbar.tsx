@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { RoleSwitcher } from "@/widgets/app-shell/RoleSwitcher";
+import { ModeToggle } from "./ThemeToggle";
 
 export function Topbar() {
   return (
@@ -13,6 +14,7 @@ export function Topbar() {
         </div>
         <div className="flex items-center gap-2">
           <RoleSwitcher />
+          <ModeToggle />
         </div>
       </div>
     </header>
