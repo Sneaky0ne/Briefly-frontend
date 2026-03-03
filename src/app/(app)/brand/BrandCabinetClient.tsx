@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Copy, Link2, RotateCcw } from "lucide-react";
+import { Copy, Link2, RotateCcw, ShieldCheck, UserCog } from "lucide-react";
 
 import { cn } from "@/shared/lib/cn";
 import { Button } from "@/shared/ui/button";
@@ -109,13 +109,40 @@ export function BrandCabinetClient() {
       <section className="grid gap-3 md:grid-cols-2">
         <div className="rounded-xl border p-4">
           <div className="text-sm font-medium">Команда</div>
-          <div className="mt-1 text-sm text-muted-foreground">
-            Здесь будут сотрудники бренда (менеджеры/аналитики) и права доступа.
+          <div className="mt-1 text-sm text-muted-foreground">Сотрудники бренда и их роли.</div>
+          <div className="mt-3 space-y-2 text-sm">
+            <div className="flex items-center justify-between gap-2 rounded-md border px-3 py-2">
+              <div>
+                <div className="font-medium">Марина</div>
+                <div className="text-xs text-muted-foreground">Realm администратор</div>
+              </div>
+              <Badge variant="secondary">
+                <ShieldCheck className="mr-1 h-3 w-3" />
+                Admin
+              </Badge>
+            </div>
+            <div className="flex items-center justify-between gap-2 rounded-md border px-3 py-2">
+              <div>
+                <div className="font-medium">Артём</div>
+                <div className="text-xs text-muted-foreground">Менеджер</div>
+              </div>
+              <Badge variant="outline">Manager</Badge>
+            </div>
+            <div className="flex items-center justify-between gap-2 rounded-md border px-3 py-2">
+              <div>
+                <div className="font-medium">Лена</div>
+                <div className="text-xs text-muted-foreground">Аналитик</div>
+              </div>
+              <Badge variant="outline">Analyst</Badge>
+            </div>
           </div>
-          <div className="mt-4 flex gap-2">
-            <Button size="sm">Добавить сотрудника</Button>
+          <div className="mt-3 flex gap-2">
+            <Button size="sm">
+              <UserCog className="mr-2 h-4 w-4" />
+              Управление доступами
+            </Button>
             <Button size="sm" variant="secondary">
-              Роли и доступы
+              Добавить сотрудника
             </Button>
           </div>
         </div>
@@ -132,6 +159,40 @@ export function BrandCabinetClient() {
             <Button size="sm" variant="outline">
               Массовая рассылка
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="rounded-xl border p-4">
+        <div className="flex items-center justify-between gap-2">
+          <div>
+            <div className="text-sm font-medium">История подключений по ссылкам</div>
+            <div className="mt-1 text-sm text-muted-foreground">
+              Кто и когда заходил в кабинет/проекты по инвайт‑линкам.
+            </div>
+          </div>
+        </div>
+        <div className="mt-3 divide-y text-sm">
+          <div className="flex items-center justify-between gap-3 py-2">
+            <div className="min-w-0">
+              <div className="font-medium">@alina.ugc</div>
+              <div className="text-xs text-muted-foreground">Креатор • Проект «5 причин купить продукт X»</div>
+            </div>
+            <div className="text-xs text-muted-foreground">01.03.2026 10:21</div>
+          </div>
+          <div className="flex items-center justify-between gap-3 py-2">
+            <div className="min-w-0">
+              <div className="font-medium">artem@agency.io</div>
+              <div className="text-xs text-muted-foreground">Менеджер • Кабинет бренда</div>
+            </div>
+            <div className="text-xs text-muted-foreground">28.02.2026 18:05</div>
+          </div>
+          <div className="flex items-center justify-between gap-3 py-2">
+            <div className="min-w-0">
+              <div className="font-medium">@maria.story</div>
+              <div className="text-xs text-muted-foreground">Креатор • Проект «Сравнение продуктов за 30 секунд»</div>
+            </div>
+            <div className="text-xs text-muted-foreground">27.02.2026 13:42</div>
           </div>
         </div>
       </section>

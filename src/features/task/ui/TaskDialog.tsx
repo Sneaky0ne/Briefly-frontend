@@ -9,6 +9,7 @@ import { TASK_CHANNEL_LABEL, TASK_STATUS_LABEL, TASK_TYPE_LABEL } from "@/entiti
 import { getAllowedTaskActions } from "@/features/task/lib/status-rules";
 import { cn } from "@/shared/lib/cn";
 import { useRole } from "@/shared/model/use-role";
+import { CURRENT_CREATOR_ID } from "@/shared/model/current-user";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import {
@@ -23,8 +24,6 @@ import { Input } from "@/shared/ui/input";
 import { Label } from "@/shared/ui/label";
 import { Separator } from "@/shared/ui/separator";
 import { Textarea } from "@/shared/ui/textarea";
-
-const CURRENT_CREATOR_ID = "c-01";
 
 function formatDate(iso: string) {
   return new Intl.DateTimeFormat("ru-RU", { dateStyle: "medium" }).format(new Date(iso));
@@ -63,6 +62,7 @@ export function TaskDialog(props: {
   ]);
   const [draft, setDraft] = React.useState("");
   const chatEndRef = React.useRef<HTMLDivElement | null>(null);
+  const [assignedCreatorId, setAssignedCreatorId] = React.useState(task.creatorId ?? "");
 
   const isAssignee = role === "creator" && task.creatorId === CURRENT_CREATOR_ID;
   const hasAssignee = Boolean(task.creatorId);
@@ -336,6 +336,78 @@ export function TaskDialog(props: {
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="rounded-lg border p-3">
+              <div className="text-sm font-medium">Назначение креатора</div>
+              <div className="mt-2 grid gap-2 md:grid-cols-[minmax(0,1fr)_auto]">
+                <select
+                  className={cn(
+                    "h-10 w-full rounded-md border border-input bg-background px-3 text-sm outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                  )}
+                  value={assignedCreatorId}
+                  onChange={(e) => setAssignedCreatorId(e.target.value)}
+                  disabled={role === "creator"}
+                >
+                  <option value="">— не назначен —</option>
+                  {creators.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {c.name} ({c.handle})
+                    </option>
+                  ))}
+                </select>
+                {role !== "creator" && (
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    disabled={!assignedCreatorId}
+                    onClick={() =>
+                      onChange({
+                        ...task,
+                        creatorId: assignedCreatorId || undefined,
+                        awaitingCreatorApproval: Boolean(assignedCreatorId),
+                        unassignRequested: false
+                      })
+                    }
+                  >
+                    Назначить
+                  </Button>
+                )}
+              </div>
+              {role === "creator" &&
+                task.creatorId === CURRENT_CREATOR_ID &&
+                task.awaitingCreatorApproval && (
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <span className="text-xs text-muted-foreground">
+                      Бренд предлагает вам эту задачу. Подтвердите участие или откажитесь.
+                    </span>
+                    <Button
+                      size="sm"
+                      onClick={() =>
+                        onChange({
+                          ...task,
+                          awaitingCreatorApproval: false,
+                          status: task.status === "new" ? "in_progress" : task.status
+                        })
+                      }
+                    >
+                      Принять задачу
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() =>
+                        onChange({
+                          ...task,
+                          awaitingCreatorApproval: false,
+                          creatorId: undefined
+                        })
+                      }
+                    >
+                      Отказаться
+                    </Button>
+                  </div>
+                )}
             </div>
           </section>
 

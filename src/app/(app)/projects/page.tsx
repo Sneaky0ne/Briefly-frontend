@@ -3,6 +3,8 @@ import { Button } from "@/shared/ui/button";
 import { Badge } from "@/shared/ui/badge";
 import { DEMO_CREATORS, DEMO_PROJECTS, DEMO_TASKS } from "@/shared/mock/demo-data";
 import { TASK_STATUS_LABEL } from "@/entities/task/model/types";
+import { CreateProjectDialog } from "@/features/project/ui/CreateProjectDialog";
+import { CreateTaskDialog } from "@/features/task/ui/CreateTaskDialog";
 
 export default function ProjectsPage() {
   return (
@@ -15,8 +17,8 @@ export default function ProjectsPage() {
         </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button>Создать проект</Button>
-          <Button variant="secondary">Создать задачу</Button>
+          <CreateProjectDialog />
+          <CreateTaskDialog />
         </div>
       </div>
 

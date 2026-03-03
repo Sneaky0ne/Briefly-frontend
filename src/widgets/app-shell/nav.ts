@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { BarChart3, FolderKanban, Home, Settings, Users, ClipboardList, Building2 } from "lucide-react";
+import { BarChart3, FolderKanban, Home, Settings, Users, ClipboardList, Building2, UserCircle2 } from "lucide-react";
 
 export type NavItem = {
   href: string;
@@ -10,6 +10,7 @@ export type NavItem = {
 export const NAV: NavItem[] = [
   { href: "/dashboard", label: "Обзор", Icon: Home },
   { href: "/brand", label: "Кабинет бренда", Icon: Building2 },
+  { href: "/creator", label: "Мои задачи", Icon: UserCircle2 },
   { href: "/projects", label: "Проекты", Icon: FolderKanban },
   { href: "/tasks", label: "Задачи", Icon: ClipboardList },
   { href: "/creators", label: "Креаторы", Icon: Users },

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Button } from "@/shared/ui/button";
 import { Badge } from "@/shared/ui/badge";
+import { TASK_STATUS_LABEL } from "@/entities/task/model/types";
 import { DEMO_CREATORS, DEMO_TASKS } from "@/shared/mock/demo-data";
 
 export default function CreatorPage({ params }: { params: { creatorId: string } }) {
@@ -62,7 +63,7 @@ export default function CreatorPage({ params }: { params: { creatorId: string } 
                   <div className="truncate font-medium">{t.title}</div>
                   <div className="mt-1 text-sm text-muted-foreground">Дедлайн: {t.dueDate}</div>
                 </div>
-                <Badge variant="secondary">{t.status}</Badge>
+                <Badge variant="secondary">{TASK_STATUS_LABEL[t.status]}</Badge>
               </div>
             ))
           ) : (

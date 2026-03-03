@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { DEMO_CREATORS, DEMO_TASKS } from "@/shared/mock/demo-data";
 import { TasksClient } from "@/app/(app)/tasks/TasksClient";
+import { CreateTaskDialog } from "@/features/task/ui/CreateTaskDialog";
 
 export default function TasksPage({
   searchParams
@@ -26,7 +27,7 @@ export default function TasksPage({
           ) : null}
         </p>
         </div>
-        <Button>Создать задачу</Button>
+        <CreateTaskDialog />
       </div>
 
       <div className="flex flex-wrap gap-2">

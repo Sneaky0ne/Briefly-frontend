@@ -30,6 +30,7 @@ export type Task = {
   creatorId?: CreatorId;
   managerId?: string;
   unassignRequested?: boolean;
+  awaitingCreatorApproval?: boolean;
   brief: string;
   scenario: string;
   attachments: { id: string; name: string; addedAt: string }[];
